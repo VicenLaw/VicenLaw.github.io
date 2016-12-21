@@ -6,14 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://vicenlaw.com">
-  <title>VicenLaw的博客</title>
+  <title>JavaScript作用域和闭包 | VicenLaw的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="VicenLaw的博客">
-<meta property="og:url" content="http://vicenlaw.com/index.html">
+  <meta name="description" content="前言：JavaScript是一种应用非常广泛的语言，其也有一些自身特点和优势，本文重在讲述其作用域机制以及闭包，会从一些实例来探讨其机理。
+作用域在JavaScript程序员日常使用中有不同的含义，如下所示：
+this绑定的值；this绑定的值定义的执行上下文；一个变量的“生命周期”；变量的值解析方案，或词法绑定。下面将讲诉JavaScript作用域概念，由此引出变量值解析方案的一般想法，最后再">
+<meta property="og:type" content="article">
+<meta property="og:title" content="JavaScript作用域和闭包">
+<meta property="og:url" content="http://vicenlaw.com/2016/12/22/JavaScript作用域和闭包/index.html">
 <meta property="og:site_name" content="VicenLaw的博客">
+<meta property="og:description" content="前言：JavaScript是一种应用非常广泛的语言，其也有一些自身特点和优势，本文重在讲述其作用域机制以及闭包，会从一些实例来探讨其机理。
+作用域在JavaScript程序员日常使用中有不同的含义，如下所示：
+this绑定的值；this绑定的值定义的执行上下文；一个变量的“生命周期”；变量的值解析方案，或词法绑定。下面将讲诉JavaScript作用域概念，由此引出变量值解析方案的一般想法，最后再">
+<meta property="og:updated_time" content="2016-12-21T20:25:56.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="VicenLaw的博客">
+<meta name="twitter:title" content="JavaScript作用域和闭包">
+<meta name="twitter:description" content="前言：JavaScript是一种应用非常广泛的语言，其也有一些自身特点和优势，本文重在讲述其作用域机制以及闭包，会从一些实例来探讨其机理。
+作用域在JavaScript程序员日常使用中有不同的含义，如下所示：
+this绑定的值；this绑定的值定义的执行上下文；一个变量的“生命周期”；变量的值解析方案，或词法绑定。下面将讲诉JavaScript作用域概念，由此引出变量值解析方案的一般想法，最后再">
   
     <link rel="alternative" href="/atom.xml" title="VicenLaw的博客" type="application/atom+xml">
   
@@ -127,16 +137,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-JavaScript作用域和闭包" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-JavaScript作用域和闭包" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/22/JavaScript作用域和闭包/">JavaScript作用域和闭包</a>
+    <h1 class="article-title" itemprop="name">
+      JavaScript作用域和闭包
     </h1>
   
 
@@ -206,146 +214,26 @@
       
 
       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaScript/">JavaScript</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端开发/">前端开发</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/22/JavaScript作用域和闭包/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-CSS高级布局技巧" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/22/CSS高级布局技巧/">CSS高级布局技巧</a>
-    </h1>
-  
-
-        <a href="/2016/12/22/CSS高级布局技巧/" class="archive-article-date">
-  	<time datetime="2016-12-21T19:21:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-22</time>
-</a>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="用-empty-区分空元素"><a href="#用-empty-区分空元素" class="headerlink" title="用 :empty 区分空元素"></a>用 :empty 区分空元素</h3><blockquote>
-<p>兼容性：不支持 IE8</p>
-</blockquote>
-<p><a href="https://jsbin.com/rikecogamu/2/edit?html,css,output" target="_blank" rel="external">demo</a><br>假如我们有以上列表：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>a<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>b<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>我们希望可以对空元素和非空元素区别处理，那么有两种方案。</p>
-<p>用 :empty 选择空元素：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:empty</span> &#123;</div><div class="line">  <span class="attribute">display</span>: none;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>或者用 :not(:empty) 选择非空元素：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:not(</span><span class="selector-pseudo">:empty)</span> &#123;</div><div class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</div><div class="line">  <span class="comment">/* ... */</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="用-Of-Type-选择元素"><a href="#用-Of-Type-选择元素" class="headerlink" title="用 :*-Of-Type 选择元素"></a>用 :*-Of-Type 选择元素</h3><blockquote>
-<p>兼容性：不支持 IE8</p>
-</blockquote>
-<p>举例说明。<br>给第一个 p 段落加粗：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:first-of-type</span> &#123;</div><div class="line">  <span class="attribute">font-weight</span>: bold;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>给最后一个 img 加边框：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">img</span><span class="selector-pseudo">:last-of-type</span> &#123;</div><div class="line">  <span class="attribute">border</span>: <span class="number">10px</span> solid <span class="number">#ccc</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>给无相连的 blockquote 加样式：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">blockquote</span><span class="selector-pseudo">:only-of-type</span> &#123;</div><div class="line">  <span class="attribute">border-left</span>: <span class="number">5px</span> solid <span class="number">#ccc</span>;</div><div class="line">  <span class="attribute">padding-left</span>: <span class="number">2em</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>让奇数列的 p 段落显示红色：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:nth-of-type(even)</span> &#123;</div><div class="line">  <span class="attribute">color</span>: red;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>此外，:nth-of-type 还可以有其他类型的参数：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/* 偶数个 */</span></div><div class="line"><span class="selector-pseudo">:nth-of-type(even)</span></div><div class="line"><span class="comment">/* only 第三个 */</span></div><div class="line"><span class="selector-pseudo">:nth-of-type(3)</span></div><div class="line"><span class="comment">/* 每第三个 */</span></div><div class="line"><span class="selector-pseudo">:nth-of-type(3n)</span></div><div class="line"><span class="comment">/* 每第四加三个，即 3, 7, 11, ... */</span></div><div class="line"><span class="selector-pseudo">:nth-of-type(4n+3)</span></div></pre></td></tr></table></figure></p>
-<h3 id="用-calc-做流式布局"><a href="#用-calc-做流式布局" class="headerlink" title="用 calc 做流式布局"></a>用 calc 做流式布局</h3><blockquote>
-<p>兼容性：不支持 IE8</p>
-</blockquote>
-<p><a href="https://output.jsbin.com/rajazobeka/3" target="_blank" rel="external">demo</a><br>左中右的流式布局：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">nav</span> &#123;</div><div class="line">  <span class="attribute">position</span>: fixed;</div><div class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">width</span>: <span class="number">5rem</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">aside</span> &#123;</div><div class="line">  <span class="attribute">position</span>: fixed;</div><div class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</div><div class="line">  <span class="attribute">width</span>: <span class="number">20rem</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">main</span> &#123;</div><div class="line">  <span class="attribute">margin-left</span>: <span class="number">5rem</span>;</div><div class="line">  <span class="attribute">width</span>: <span class="built_in">calc</span>(100% - 25rem);</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="用-vw-和-vh-做全屏滚动效果"><a href="#用-vw-和-vh-做全屏滚动效果" class="headerlink" title="用 vw 和 vh 做全屏滚动效果"></a>用 vw 和 vh 做全屏滚动效果</h3><blockquote>
-<p>兼容性：不支持 IE8</p>
-</blockquote>
-<p><a href="https://output.jsbin.com/doridehewe/1" target="_blank" rel="external">demo</a><br>vw 和 vh 是相对于 viewport 而言的，所以不会随内容和布局的变化而变。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">section</span> &#123;</div><div class="line">  <span class="attribute">width</span>: <span class="number">100vw</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">100vh</span>;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">align-items</span>: center;</div><div class="line">  <span class="attribute">justify-content</span>: center;</div><div class="line">  <span class="attribute">text-align</span>: center;</div><div class="line">  <span class="attribute">background-size</span>: cover;</div><div class="line">  <span class="attribute">background-repeat</span>: no-repeat;</div><div class="line">  <span class="attribute">background-attachment</span>: fixed;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">section</span><span class="selector-pseudo">:nth-of-type(1)</span> &#123;</div><div class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">'https://unsplash.it/1024/683?image=1068'</span>);</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">section</span><span class="selector-pseudo">:nth-of-type(2)</span> &#123;</div><div class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">'https://unsplash.it/1024/683?image=1073'</span>);</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">section</span><span class="selector-pseudo">:nth-of-type(3)</span> &#123;</div><div class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">'https://unsplash.it/1024/683?image=1047'</span>);</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">section</span><span class="selector-pseudo">:nth-of-type(4)</span> &#123;</div><div class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">'https://unsplash.it/1024/683?image=1032'</span>);</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">p</span> &#123;</div><div class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">100px</span>;</div><div class="line">  <span class="attribute">font-family</span>: monospace;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<h3 id="用-unset-做-CSS-Reset"><a href="#用-unset-做-CSS-Reset" class="headerlink" title="用 unset 做 CSS Reset"></a>用 unset 做 CSS Reset</h3><blockquote>
-<p>兼容性：不支持 IE</p>
-</blockquote>
-<p><a href="https://jsbin.com/titugibebu/3" target="_blank" rel="external">Demo</a></p>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">body</span> &#123;</div><div class="line">  <span class="attribute">color</span>: red;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">button</span> &#123;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/* 取消 section 中 button 的 color 设置 */</span></div><div class="line"><span class="selector-tag">section</span> <span class="selector-tag">button</span> &#123;</div><div class="line">  <span class="attribute">color</span>: unset;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h3 id="用-column-做响应式的列布局"><a href="#用-column-做响应式的列布局" class="headerlink" title="用 column 做响应式的列布局"></a>用 column 做响应式的列布局</h3><blockquote>
-<p>兼容性：不支持 IE9</p>
-</blockquote>
-<p><a href="https://jsbin.com/xaruzuratu/2" target="_blank" rel="external">Demo</a><br><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">nav</span> &#123;</div><div class="line">  <span class="attribute">column-count</span>: <span class="number">4</span>;</div><div class="line">  <span class="attribute">column-width</span>: <span class="number">150px</span>;</div><div class="line">  <span class="attribute">column-gap</span>: <span class="number">3rem</span>;</div><div class="line">  <span class="attribute">column-rule</span>: <span class="number">1px</span> dashed <span class="number">#ccc</span>;</div><div class="line">  <span class="attribute">column-fill</span>: auto;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">h2</span> &#123;</div><div class="line">  <span class="attribute">column-span</span>: all;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
-<p>文章来源：<a href="https://github.com/sorrycc/blog/issues/14" target="_blank" rel="external">https://github.com/sorrycc/blog/issues/14</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/CSS/">CSS</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/前端开发/">前端开发</a></li></ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/22/CSS高级布局技巧/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-JS对象" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/22/JS对象/">JS对象</a>
-    </h1>
-  
-
-        <a href="/2016/12/22/JS对象/" class="archive-article-date">
-  	<time datetime="2016-12-21T17:21:45.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-22</time>
-</a>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>测试文章<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var oObject = new Object();</div><div class="line">var oStringObject = new String();</div></pre></td></tr></table></figure></p>
-
-      
-
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>正在完善中...<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -359,83 +247,101 @@
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/22/JS对象/">展开全文 >></a>
-        </p>
-      
 
       
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
         
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/08/14/hello-world/">Hello World</a>
-    </h1>
-  
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
 
-        <a href="/2016/08/14/hello-world/" class="archive-article-date">
-  	<time datetime="2016-08-13T18:07:42.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-08-14</time>
-</a>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-      
-
-      
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://vicenlaw.com/2016/12/22/JavaScript作用域和闭包/" alt="微信分享二维码">
     </div>
-    <div class="article-info article-info-index">
-      
-      
-      
+</div>
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/08/14/hello-world/">展开全文 >></a>
-        </p>
-      
-
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
-
-
-
-
-
-
+  
+<nav id="article-nav">
   
   
+    <a href="/2016/12/22/CSS高级布局技巧/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">CSS高级布局技巧</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="JavaScript作用域和闭包" data-title="JavaScript作用域和闭包" data-url="http://vicenlaw.com/2016/12/22/JavaScript作用域和闭包/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"true"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
 
 
           </div>
@@ -457,8 +363,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
