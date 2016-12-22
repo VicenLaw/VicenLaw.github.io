@@ -26,7 +26,7 @@ demo假如我们有以上列表：
 123&amp;lt;div class=&quot;item&quot;&amp;gt;a&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;item&quot;&amp;gt;b&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;item&quot;&amp;gt;&amp;lt;/div&amp;gt;
 我们希望可以对空元素和非空元素区别处理，那么有两种方案。
 用 :empty 选择空元素">
-<meta property="og:updated_time" content="2016-12-21T19:37:59.000Z">
+<meta property="og:updated_time" content="2016-12-22T17:10:51.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="CSS高级布局技巧">
 <meta name="twitter:description" content="用 :empty 区分空元素
@@ -72,6 +72,10 @@ demo假如我们有以上列表：
 			<ul>
 			
 				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/categories/Frontend">前端开发</a></li>
+	        
+				<li><a href="/categories/Music">音乐</a></li>
 	        
 			</ul>
 		</nav>
@@ -126,6 +130,10 @@ demo假如我们有以上列表：
 				<ul>
 				
 					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/categories/Frontend">前端开发</a></li>
+		        
+					<li><a href="/categories/Music">音乐</a></li>
 		        
 		        
 		        	<li><a href="/archives/">所有文章</a></li>
@@ -236,6 +244,11 @@ demo假如我们有以上列表：
 	</div>
 
       
+	<div class="article-category tagcloud">
+	<i class="icon-book icon"></i>
+	<a class="article-category-link" href="/categories/Frontend/">Frontend</a>
+	</div>
+
 
       
 
@@ -395,7 +408,7 @@ demo假如我们有以上列表：
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)">CSS</a>
+                <a href="javascript:void(0)">JavaScript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -403,7 +416,7 @@ demo假如我们有以上列表：
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)">JavaScript</a>
+                <a href="javascript:void(0)">CSS</a>
               </li>
             
             <div class="clearfix"></div>
