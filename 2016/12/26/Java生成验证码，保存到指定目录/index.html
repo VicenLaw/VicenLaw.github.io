@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
+  <link rel="dns-prefetch" href="http://vicenlaw.com">
+  <title>Java生成验证码，保存到指定目录 | VicenLaw的博客</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="前段时间，帮一个朋友弄个登录界面，用到了java生成验证码。config_verifyCode.xml是配置保存目录。如需改动保存目录，直接改xml配置即可。
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Java生成验证码，保存到指定目录">
+<meta property="og:url" content="http://vicenlaw.com/2016/12/26/Java生成验证码，保存到指定目录/index.html">
+<meta property="og:site_name" content="VicenLaw的博客">
+<meta property="og:description" content="前段时间，帮一个朋友弄个登录界面，用到了java生成验证码。config_verifyCode.xml是配置保存目录。如需改动保存目录，直接改xml配置即可。
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646">
+<meta property="og:updated_time" content="2016-12-25T19:41:34.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Java生成验证码，保存到指定目录">
+<meta name="twitter:description" content="前段时间，帮一个朋友弄个登录界面，用到了java生成验证码。config_verifyCode.xml是配置保存目录。如需改动保存目录，直接改xml配置即可。
+123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051525354555657585960616263646">
+  
+    <link rel="alternative" href="/atom.xml" title="VicenLaw的博客" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  <link rel="stylesheet" href="/main.css?v=4.0.0.css">
+  
+
+  
+
+</head>
+
+<body>
+  <div id="container" q-class="show:isCtnShow">
+    <canvas id="anm-canvas" class="anm-canvas"></canvas>
+    <div class="left-col" q-class="show:isShow">
+      <div class="overlay"></div>
+<div class="intrude-less">
+	<header id="header" class="inner">
+		<a href="/" class="profilepic">
+			<img src="http://vicenlaw.com/img/jay.jpg" class="js-avatar">
+		</a>
+
+		<hgroup>
+		  <h1 class="header-author"><a href="/">Vicen Law</a></h1>
+		</hgroup>
+
+		
+		<p class="header-subtitle">分享有趣的</p>
+		
+
+		<nav class="header-menu">
+			<ul>
+			
+				<li><a href="/">主页</a></li>
+	        
+				<li><a href="/categories/Frontend">前端开发</a></li>
+	        
+				<li><a href="/categories/Java">Java</a></li>
+	        
+				<li><a href="/categories/Music">音乐</a></li>
+	        
+			</ul>
+		</nav>
+		<nav class="header-smart-menu">
+	        
+    		
+    			
+    			<a data-idx="0" q-on="click: openSlider(e, 'innerArchive')" href="javascript:void(0)">所有文章</a>
+    			
+    			
+            
+    			
+    			<a data-idx="1" q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">更多</a>
+    			
+    			
+            
+    			
+    			<a data-idx="2" q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
+    			
+    			
+            
+		</nav>
+		<nav class="header-nav">
+			<div class="social">
+				
+					<a class="github" target="_blank" href="https://github.com/vicenlaw" title="github"><i class="icon-github"></i></a>
+		        
+			</div>
+		</nav>
+	</header>		
+</div>
+
+    </div>
+    <div class="mid-col" q-class="show:isShow,hide:isShow|isFalse">
+      <nav id="mobile-nav">
+  	<div class="overlay">
+  		<div class="slider-trigger"><i class="icon-sort"></i></div>
+  		<h1 class="header-author js-mobile-header hide">Vicen Law</h1>
+  	</div>
+	<div class="intrude-less">
+		<header id="header" class="inner">
+			<div class="profilepic">
+				<img src="http://vicenlaw.com/img/jay.jpg" class="js-avatar">
+			</div>
+			<hgroup>
+			  <h1 class="header-author">Vicen Law</h1>
+			</hgroup>
+			
+			<p class="header-subtitle">分享有趣的</p>
+			
+			<nav class="header-menu">
+				<ul>
+				
+					<li><a href="/">主页</a></li>
+		        
+					<li><a href="/categories/Frontend">前端开发</a></li>
+		        
+					<li><a href="/categories/Java">Java</a></li>
+		        
+					<li><a href="/categories/Music">音乐</a></li>
+		        
+		        
+		        	<li><a href="/archives/">所有文章</a></li>
+		        
+				</ul>
+			</nav>
+			<nav class="header-nav">
+				<div class="social">
+					
+						<a class="github" target="_blank" href="https://github.com/vicenlaw" title="github"><i class="icon-github"></i></a>
+			        
+				</div>
+			</nav>
+		</header>				
+	</div>
+</nav>
+
+      <div id="wrapper" class="body-wrap">
+        <div class="menu-l">
+          <div class="canvas-wrap">
+            <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
+          </div>
+          <div id="js-content" class="content-ll">
+            <article id="post-Java生成验证码，保存到指定目录" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Java生成验证码，保存到指定目录
+    </h1>
+  
+
+        <a href="/2016/12/26/Java生成验证码，保存到指定目录/" class="archive-article-date">
+  	<time datetime="2016-12-25T19:36:58.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-26</time>
+</a>
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>前段时间，帮一个朋友弄个登录界面，用到了java生成验证码。<br>config_verifyCode.xml是配置保存目录。如需改动保存目录，直接改xml配置即可。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> java.awt.*;</div><div class="line"><span class="keyword">import</span> java.awt.image.BufferedImage;</div><div class="line"><span class="keyword">import</span> java.io.*;</div><div class="line"><span class="keyword">import</span> java.util.Random;</div><div class="line"><span class="keyword">import</span> javax.imageio.ImageIO;</div><div class="line"><span class="keyword">import</span> javax.servlet.ServletException;</div><div class="line"><span class="keyword">import</span> javax.servlet.http.*;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.xml.parsers.DocumentBuilder;   </div><div class="line"><span class="keyword">import</span> javax.xml.parsers.DocumentBuilderFactory;   </div><div class="line"><span class="keyword">import</span> org.w3c.dom.Document;   </div><div class="line"><span class="keyword">import</span> org.w3c.dom.Element;   </div><div class="line"><span class="keyword">import</span> org.w3c.dom.Node;   </div><div class="line"><span class="keyword">import</span> org.w3c.dom.NodeList;   </div><div class="line"><span class="keyword">import</span> org.xml.sax.InputSource;    </div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">RandCodeImage</span> <span class="keyword">extends</span> <span class="title">HttpServlet</span></span></div><div class="line">&#123;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">RandCodeImage</span><span class="params">()</span></span></div><div class="line">    &#123;</div><div class="line">        lineWidth = <span class="number">2</span>;</div><div class="line">        width = <span class="number">90</span>;</div><div class="line">        height = <span class="number">32</span>;</div><div class="line">        count = <span class="number">200</span>;</div><div class="line">        randomCode = <span class="keyword">null</span>;</div><div class="line">        x = <span class="number">0</span>;</div><div class="line">        codeNum = <span class="number">4</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span></span></div><div class="line">        <span class="keyword">throws</span> ServletException</div><div class="line">    &#123;</div><div class="line">        String strCodeNums = getInitParameter(<span class="string">"codeCount"</span>);</div><div class="line">        String strW = getInitParameter(<span class="string">"width"</span>);</div><div class="line">        String strH = getInitParameter(<span class="string">"height"</span>);</div><div class="line">        <span class="keyword">try</span></div><div class="line">        &#123;</div><div class="line">            <span class="keyword">if</span>(strH != <span class="keyword">null</span> &amp;&amp; strH.length() != <span class="number">0</span>)</div><div class="line">                height = Integer.parseInt(strH);</div><div class="line">            <span class="keyword">if</span>(strW != <span class="keyword">null</span> &amp;&amp; strW.length() != <span class="number">0</span>)</div><div class="line">                width = Integer.parseInt(strW);</div><div class="line">            <span class="keyword">if</span>(strCodeNums != <span class="keyword">null</span> &amp;&amp; strCodeNums.length() != <span class="number">0</span>)</div><div class="line">                codeNum = Integer.parseInt(strCodeNums);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">catch</span>(NumberFormatException numberformatexception) &#123; &#125;</div><div class="line">        x = width / (codeNum + <span class="number">1</span>);</div><div class="line">        System.out.println(<span class="string">"xx = "</span> + x);</div><div class="line">        fontHeight = height - <span class="number">2</span>;</div><div class="line">        codeY = height - <span class="number">4</span>;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> Color <span class="title">getRandColor</span><span class="params">(<span class="keyword">int</span> fc, <span class="keyword">int</span> bc)</span></span></div><div class="line">    &#123;</div><div class="line">        Random random = <span class="keyword">new</span> Random();</div><div class="line">        <span class="keyword">if</span>(fc &gt; <span class="number">255</span>)</div><div class="line">            fc = <span class="number">255</span>;</div><div class="line">        <span class="keyword">if</span>(bc &gt; <span class="number">255</span>)</div><div class="line">            bc = <span class="number">255</span>;</div><div class="line">        <span class="keyword">int</span> r = fc + random.nextInt(bc - fc);</div><div class="line">        <span class="keyword">int</span> g = fc + random.nextInt(bc - fc);</div><div class="line">        <span class="keyword">int</span> b = fc + random.nextInt(bc - fc);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Color(r, g, b);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">doPost</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></div><div class="line">        <span class="keyword">throws</span> ServletException, IOException</div><div class="line">    &#123;</div><div class="line">        doGet(request, response);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">service</span><span class="params">(HttpServletRequest request, HttpServletResponse response)</span></span></div><div class="line">        <span class="keyword">throws</span> ServletException, IOException</div><div class="line">    &#123;</div><div class="line">        String sessionName = request.getParameter(<span class="string">"sessionName"</span>);</div><div class="line">        <span class="keyword">if</span>(sessionName == <span class="keyword">null</span> || sessionName.length() == <span class="number">0</span>)</div><div class="line">            sessionName = <span class="string">"rand"</span>;</div><div class="line">        <span class="keyword">this</span>.x = width / (codeNum + <span class="number">1</span>);</div><div class="line">        fontHeight = height - <span class="number">4</span>;</div><div class="line">        codeY = height - <span class="number">4</span>;</div><div class="line">        </div><div class="line">        response.setHeader(<span class="string">"Pragma"</span>, <span class="string">"No-cache"</span>);</div><div class="line">        response.setHeader(<span class="string">"Cache-Control"</span>, <span class="string">"no-cache"</span>);</div><div class="line">        response.setDateHeader(<span class="string">"Expires"</span>, <span class="number">0L</span>);</div><div class="line">        </div><div class="line">        BufferedImage image = <span class="keyword">new</span> BufferedImage(width, height, <span class="number">1</span>);</div><div class="line">        Graphics2D g = (Graphics2D)image.getGraphics();</div><div class="line">        Random random = <span class="keyword">new</span> Random();</div><div class="line">        </div><div class="line">        g.setColor(Color.WHITE);</div><div class="line">        g.fillRect(<span class="number">0</span>, <span class="number">0</span>, width, height);</div><div class="line">        fontHeight = height - <span class="number">2</span>;</div><div class="line">        Font font = <span class="keyword">new</span> Font(<span class="string">"Fixedsys"</span>, <span class="number">0</span>, fontHeight);</div><div class="line">        </div><div class="line">        g.setFont(font);</div><div class="line">        g.setColor(getRandColor(<span class="number">0</span>, <span class="number">20</span>));</div><div class="line">        g.drawRect(<span class="number">0</span>, <span class="number">0</span>, width - <span class="number">1</span>, height - <span class="number">1</span>);</div><div class="line">        </div><div class="line">        g.setColor(getRandColor(<span class="number">200</span>, <span class="number">250</span>));</div><div class="line">        g.setColor(Color.BLACK);</div><div class="line">        g.drawRect(<span class="number">0</span>, <span class="number">0</span>, width - <span class="number">1</span>, height - <span class="number">1</span>);</div><div class="line">        </div><div class="line">        g.setColor(getRandColor(<span class="number">160</span>, <span class="number">200</span>));</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; <span class="number">20</span>; j++)</div><div class="line">        &#123;</div><div class="line">            <span class="keyword">int</span> x = random.nextInt(width - lineWidth - <span class="number">1</span>) + <span class="number">1</span>;</div><div class="line">            <span class="keyword">int</span> y = random.nextInt(height - lineWidth - <span class="number">1</span>) + <span class="number">1</span>;</div><div class="line">            <span class="keyword">int</span> xl = random.nextInt(<span class="number">12</span>);</div><div class="line">            <span class="keyword">int</span> yl = random.nextInt(<span class="number">12</span>);</div><div class="line">            g.drawLine(x, y, x + xl, y + yl);</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        String sRand = <span class="string">""</span>;</div><div class="line">        <span class="keyword">int</span> R = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> G = <span class="number">0</span>;</div><div class="line">        <span class="keyword">int</span> B = <span class="number">0</span>;</div><div class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">4</span>; i++)</div><div class="line">        &#123;</div><div class="line">            String rand = String.valueOf(codes[random.nextInt(<span class="number">32</span>)]);</div><div class="line">            sRand = sRand + rand;</div><div class="line">            R = random.nextInt(<span class="number">255</span>);</div><div class="line">            G = random.nextInt(<span class="number">255</span>);</div><div class="line">            B = random.nextInt(<span class="number">255</span>);</div><div class="line">            g.setColor(<span class="keyword">new</span> Color(R, G, B));</div><div class="line">            g.drawString(rand, (i + <span class="number">1</span>) * <span class="keyword">this</span>.x, codeY);</div><div class="line">        &#125;</div><div class="line">        g.dispose();</div><div class="line">        <span class="keyword">long</span> lasting = System.currentTimeMillis();</div><div class="line">        String yzmpath = <span class="keyword">null</span>;</div><div class="line">        <span class="keyword">try</span>&#123;</div><div class="line">        	File f = <span class="keyword">new</span> File(<span class="string">"config_verifyCode.xml"</span>);</div><div class="line">        	 DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();</div><div class="line">        	 DocumentBuilder builder = factory.newDocumentBuilder();</div><div class="line">        	 Document doc = builder.parse(f);</div><div class="line">        	 NodeList nl = doc.getElementsByTagName(<span class="string">"VALUE"</span>); </div><div class="line">             <span class="keyword">for</span> (<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nl.getLength();i++)&#123; </div><div class="line">            	 yzmpath = doc.getElementsByTagName(<span class="string">"Dir"</span>).item(i).getFirstChild().getNodeValue(); </div><div class="line">                 &#125; </div><div class="line">        &#125; <span class="keyword">catch</span>(Exception e)&#123;</div><div class="line">        	e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">ImageIO.write(image, <span class="string">"JPEG"</span>, <span class="keyword">new</span> File(yzmpath + sRand.toString() + <span class="string">".jpg"</span>));</div><div class="line">        response.setContentType(<span class="string">"text/html"</span>);</div><div class="line">        PrintWriter out = response.getWriter();</div><div class="line">        out.println(<span class="string">"&lt;!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.01 Transitional//EN\"&gt;"</span>);</div><div class="line">        out.println(<span class="string">"&lt;HTML&gt;"</span>);</div><div class="line">        out.println(<span class="string">" &lt;HEAD&gt;&lt;TITLE&gt;A Servlet Out VerifyCode&lt;/TITLE&gt;&lt;/HEAD&gt;"</span>);</div><div class="line">        out.println(<span class="string">" &lt;BODY&gt;"</span>);</div><div class="line">        out.println(<span class="string">" &lt;t0&gt;"</span> + sRand.toString() + <span class="string">"&lt;/t0&gt;"</span>);</div><div class="line">        out.println(<span class="string">" &lt;/BODY&gt;"</span>);</div><div class="line">        out.println(<span class="string">"&lt;/HTML&gt;"</span>);</div><div class="line">        out.flush();</div><div class="line">        out.close();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> lineWidth;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> width;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> height;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> count;</div><div class="line">    StringBuffer randomCode;</div><div class="line">    <span class="keyword">char</span> codes[] = &#123;</div><div class="line">        <span class="string">'2'</span>, <span class="string">'3'</span>, <span class="string">'4'</span>, <span class="string">'5'</span>, <span class="string">'6'</span>, <span class="string">'7'</span>, <span class="string">'8'</span>, <span class="string">'9'</span>, <span class="string">'A'</span>, </div><div class="line">        <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>, <span class="string">'E'</span>, <span class="string">'F'</span>, <span class="string">'G'</span>, <span class="string">'H'</span>, <span class="string">'J'</span>, <span class="string">'K'</span>, </div><div class="line">        <span class="string">'L'</span>, <span class="string">'M'</span>, <span class="string">'N'</span>, <span class="string">'P'</span>, <span class="string">'Q'</span>, <span class="string">'R'</span>, <span class="string">'S'</span>, <span class="string">'T'</span>, <span class="string">'U'</span>, <span class="string">'V'</span>, </div><div class="line">        <span class="string">'W'</span>, <span class="string">'X'</span>, <span class="string">'Y'</span>, <span class="string">'Z'</span></div><div class="line">    &#125;;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> x;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> fontHeight;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> codeY;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> codeNum;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>正在完善中...<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags"></i>
+		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/">Java</a></li></ul>
+	</div>
+
+      
+	<div class="article-category tagcloud">
+	<i class="icon-book icon"></i>
+	<a class="article-category-link" href="/categories/Java/">Java</a>
+	</div>
+
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://vicenlaw.com/2016/12/26/Java生成验证码，保存到指定目录/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2016/12/25/Js数组方法/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Js数组方法</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+<div class="duoshuo">
+	<!-- 多说评论框 start -->
+	<div class="ds-thread" data-thread-key="Java生成验证码，保存到指定目录" data-title="Java生成验证码，保存到指定目录" data-url="http://vicenlaw.com/2016/12/26/Java生成验证码，保存到指定目录/"></div>
+	<!-- 多说评论框 end -->
+	<!-- 多说公共JS代码 start (一个网页只需插入一次) -->
+	<script type="text/javascript">
+	var duoshuoQuery = {short_name:"vicenlaw"};
+	(function() {
+		var ds = document.createElement('script');
+		ds.type = 'text/javascript';ds.async = true;
+		ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+		ds.charset = 'UTF-8';
+		(document.getElementsByTagName('head')[0] 
+		 || document.getElementsByTagName('body')[0]).appendChild(ds);
+	})();
+	</script>
+	<!-- 多说公共JS代码 end -->
+</div>
+
+
+
+
+
+          </div>
+        </div>
+      </div>
+      <footer id="footer">
+  <div class="outer">
+    <div id="footer-info">
+    	<div class="footer-left">
+    		&copy; 2016 Vicen Law
+    	</div>
+      	<div class="footer-right">
+      		<a href="http://hexo.io/" target="_blank">Hexo</a>  Theme <a href="https://github.com/litten/hexo-theme-yilia" target="_blank">Yilia</a> by Litten
+      	</div>
+    </div>
+  </div>
+</footer>
+    </div>
+    <script>
+	var yiliaConfig = {
+		mathjax: false,
+		isHome: false,
+		isPost: true,
+		isArchive: false,
+		isTag: false,
+		isCategory: false,
+		open_in_new: false,
+		root: "/",
+		innerArchive: true
+	}
+</script>
+
+<script src="/./main.js?v=4.0.0.js"></script>
+
+
+    
+<div class="tools-col" q-class="show:isShow,hide:isShow|isFalse" q-on="click:stop(e)">
+  <div class="tools-wrap">
+    
+    	<section class="tools-section tools-section-all" q-show="innerArchive">
+        <div class="search-wrap">
+          <input class="search-ipt" q-model="search" type="text" placeholder="find something…">
+          <i class="icon-search icon" q-show="search|isEmptyStr"></i>
+          <i class="icon-close icon" q-show="search|isNotEmptyStr" q-on="click:clearChose(e)"></i>
+        </div>
+        <div class="widget tagcloud search-tag">
+          <p class="search-tag-wording">tag:</p>
+          <label class="search-switch">
+            <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
+          </label>
+          <ul class="article-tag-list" q-show="showTags">
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">CSS</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">前端开发</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">JavaScript</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)">Java</a>
+              </li>
+            
+            <div class="clearfix"></div>
+          </ul>
+        </div>
+        <ul class="search-ul">
+          <p q-show="jsonFail" style="padding: 20px; font-size: 12px;">
+            缺失模块。<br/>1、在博客根目录（注意不是yilia根目录）执行以下命令：<br/> npm i hexo-generator-json-content --save<br/><br/>
+            2、在根目录_config.yml里添加配置：
+<pre style="font-size: 12px;" q-show="jsonFail">
+  jsonContent:
+    meta: false
+    pages: false
+    posts:
+      title: true
+      date: true
+      path: true
+      text: true
+      raw: false
+      content: false
+      slug: false
+      updated: false
+      comments: false
+      link: false
+      permalink: false
+      excerpt: false
+      categories: false
+      tags: true
+</pre>
+          </p>
+          <li class="search-li" q-repeat="items" q-show="isShow">
+            <a q-attr="href:path|urlformat" class="search-title"><i class="icon-quo-left icon"></i><span q-text="title"></span></a>
+            <p class="search-time">
+              <i class="icon-calendar icon"></i>
+              <span q-text="date|dateformat"></span>
+            </p>
+            <p class="search-tag">
+              <i class="icon-price-tags icon"></i>
+              <span q-repeat="tags" q-on="click:choseTag(e, name)" q-text="name|tagformat"></span>
+            </p>
+          </li>
+        </ul>
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-friends" q-show="friends">
+  		
+        <ul class="search-ul">
+          
+            <li class="search-li">
+              <a href="http://p.vicenlaw.com/" target="_blank" class="search-title"><i class="icon-quo-left icon"></i>旧的项目</a>
+            </li>
+          
+        </ul>
+  		
+    	</section>
+    
+
+    
+    	<section class="tools-section tools-section-me" q-show="aboutme">
+  	  	
+  	  		<div class="aboutme-wrap" id="js-aboutme">很惭愧&lt;br&gt;&lt;br&gt;正在完善博客中</div>
+  	  	
+    	</section>
+    
+  </div>
+  
+</div>
+    <!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                <!--  Controls are self-explanatory. Order can be changed. -->
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" style="display:none" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+  </div>
+</body>
+</html>
