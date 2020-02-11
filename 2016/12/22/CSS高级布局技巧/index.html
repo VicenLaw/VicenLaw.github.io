@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="CSS,前端开发," />
+  <meta name="keywords" content="前端开发,CSS," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="用 :empty 区分空元素 兼容性：不支持 IE8  demo假如我们有以上列表： 123&amp;lt;div class=&quot;item&quot;&amp;gt;a&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;item&quot;&amp;gt;b&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;item&quot;&amp;gt;&amp;lt;/div&amp;gt; 我们希望可以对空元素和非空元素区别处理，那么有两种方案。 用 :empty 选择空元素">
-<meta name="keywords" content="CSS,前端开发">
+<meta name="description" content="用 :empty 区分空元素 兼容性：不支持 IE8  demo假如我们有以上列表： 123&lt;div class&#x3D;&quot;item&quot;&gt;a&lt;&#x2F;div&gt;&lt;div class&#x3D;&quot;item&quot;&gt;b&lt;&#x2F;div&gt;&lt;div class&#x3D;&quot;item&quot;&gt;&lt;&#x2F;div&gt; 我们希望可以对空元素和非空元素区别处理，那么有两种方案。 用 :empty 选择空元素">
 <meta property="og:type" content="article">
 <meta property="og:title" content="CSS高级布局技巧">
-<meta property="og:url" content="http://yoursite.com/2016/12/22/CSS高级布局技巧/index.html">
+<meta property="og:url" content="http://yoursite.com/2016/12/22/CSS%E9%AB%98%E7%BA%A7%E5%B8%83%E5%B1%80%E6%8A%80%E5%B7%A7/index.html">
 <meta property="og:site_name" content="VicenLaw的博客">
-<meta property="og:description" content="用 :empty 区分空元素 兼容性：不支持 IE8  demo假如我们有以上列表： 123&amp;lt;div class=&quot;item&quot;&amp;gt;a&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;item&quot;&amp;gt;b&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;item&quot;&amp;gt;&amp;lt;/div&amp;gt; 我们希望可以对空元素和非空元素区别处理，那么有两种方案。 用 :empty 选择空元素">
-<meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2016-12-22T17:10:51.000Z">
+<meta property="og:description" content="用 :empty 区分空元素 兼容性：不支持 IE8  demo假如我们有以上列表： 123&lt;div class&#x3D;&quot;item&quot;&gt;a&lt;&#x2F;div&gt;&lt;div class&#x3D;&quot;item&quot;&gt;b&lt;&#x2F;div&gt;&lt;div class&#x3D;&quot;item&quot;&gt;&lt;&#x2F;div&gt; 我们希望可以对空元素和非空元素区别处理，那么有两种方案。 用 :empty 选择空元素">
+<meta property="article:published_time" content="2016-12-21T19:21:36.000Z">
+<meta property="article:modified_time" content="2016-12-22T17:10:51.000Z">
+<meta property="article:author" content="Vicen Law">
+<meta property="article:tag" content="前端开发">
+<meta property="article:tag" content="CSS">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CSS高级布局技巧">
-<meta name="twitter:description" content="用 :empty 区分空元素 兼容性：不支持 IE8  demo假如我们有以上列表： 123&amp;lt;div class=&quot;item&quot;&amp;gt;a&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;item&quot;&amp;gt;b&amp;lt;/div&amp;gt;&amp;lt;div class=&quot;item&quot;&amp;gt;&amp;lt;/div&amp;gt; 我们希望可以对空元素和非空元素区别处理，那么有两种方案。 用 :empty 选择空元素">
 
 
 
@@ -136,7 +136,7 @@
 
 
 
-</head>
+<meta name="generator" content="Hexo 4.2.0"></head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
 
@@ -253,7 +253,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/22/CSS高级布局技巧/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2016/12/22/CSS%E9%AB%98%E7%BA%A7%E5%B8%83%E5%B1%80%E6%8A%80%E5%B7%A7/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Vicen Law">
@@ -324,6 +324,11 @@
           
 
           
+            <span class="post-meta-divider">|</span>
+            <span class="page-pv"><i class="fa fa-file-o"></i>
+            <span class="busuanzi-value" id="busuanzi_value_page_pv" ></span>
+            </span>
+          
 
           
 
@@ -348,24 +353,33 @@
 <p><a href="https://jsbin.com/rikecogamu/2/edit?html,css,output" target="_blank" rel="noopener">demo</a><br>假如我们有以上列表：</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>a<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span>b<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"item"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure>
 <p>我们希望可以对空元素和非空元素区别处理，那么有两种方案。</p>
-<p>用 :empty 选择空元素：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:empty</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>或者用 :not(:empty) 选择非空元素：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:not(</span><span class="selector-pseudo">:empty)</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>用 :empty 选择空元素：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:empty</span> &#123;</span><br><span class="line">  <span class="attribute">display</span>: none;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>或者用 :not(:empty) 选择非空元素：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-class">.item</span><span class="selector-pseudo">:not(</span><span class="selector-pseudo">:empty)</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">1px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">  <span class="comment">/* ... */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="用-Of-Type-选择元素"><a href="#用-Of-Type-选择元素" class="headerlink" title="用 :*-Of-Type 选择元素"></a>用 :*-Of-Type 选择元素</h3><blockquote>
 <p>兼容性：不支持 IE8</p>
 </blockquote>
-<p>举例说明。<br>给第一个 p 段落加粗：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:first-of-type</span> &#123;</span><br><span class="line">  <span class="attribute">font-weight</span>: bold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>给最后一个 img 加边框：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span><span class="selector-pseudo">:last-of-type</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">10px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>给无相连的 blockquote 加样式：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">blockquote</span><span class="selector-pseudo">:only-of-type</span> &#123;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">5px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">padding-left</span>: <span class="number">2em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>让奇数列的 p 段落显示红色：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:nth-of-type(even)</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p>此外，:nth-of-type 还可以有其他类型的参数：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 偶数个 */</span></span><br><span class="line"><span class="selector-pseudo">:nth-of-type(even)</span></span><br><span class="line"><span class="comment">/* only 第三个 */</span></span><br><span class="line"><span class="selector-pseudo">:nth-of-type(3)</span></span><br><span class="line"><span class="comment">/* 每第三个 */</span></span><br><span class="line"><span class="selector-pseudo">:nth-of-type(3n)</span></span><br><span class="line"><span class="comment">/* 每第四加三个，即 3, 7, 11, ... */</span></span><br><span class="line"><span class="selector-pseudo">:nth-of-type(4n+3)</span></span><br></pre></td></tr></table></figure></p>
+<p>举例说明。<br>给第一个 p 段落加粗：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:first-of-type</span> &#123;</span><br><span class="line">  <span class="attribute">font-weight</span>: bold;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>给最后一个 img 加边框：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">img</span><span class="selector-pseudo">:last-of-type</span> &#123;</span><br><span class="line">  <span class="attribute">border</span>: <span class="number">10px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>给无相连的 blockquote 加样式：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">blockquote</span><span class="selector-pseudo">:only-of-type</span> &#123;</span><br><span class="line">  <span class="attribute">border-left</span>: <span class="number">5px</span> solid <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">padding-left</span>: <span class="number">2em</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>让奇数列的 p 段落显示红色：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">p</span><span class="selector-pseudo">:nth-of-type(even)</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: red;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>此外，:nth-of-type 还可以有其他类型的参数：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/* 偶数个 */</span></span><br><span class="line"><span class="selector-pseudo">:nth-of-type(even)</span></span><br><span class="line"><span class="comment">/* only 第三个 */</span></span><br><span class="line"><span class="selector-pseudo">:nth-of-type(3)</span></span><br><span class="line"><span class="comment">/* 每第三个 */</span></span><br><span class="line"><span class="selector-pseudo">:nth-of-type(3n)</span></span><br><span class="line"><span class="comment">/* 每第四加三个，即 3, 7, 11, ... */</span></span><br><span class="line"><span class="selector-pseudo">:nth-of-type(4n+3)</span></span><br></pre></td></tr></table></figure>
 <h3 id="用-calc-做流式布局"><a href="#用-calc-做流式布局" class="headerlink" title="用 calc 做流式布局"></a>用 calc 做流式布局</h3><blockquote>
 <p>兼容性：不支持 IE8</p>
 </blockquote>
-<p><a href="https://output.jsbin.com/rajazobeka/3" target="_blank" rel="noopener">demo</a><br>左中右的流式布局：<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">nav</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">5rem</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">aside</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">20rem</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">main</span> &#123;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">5rem</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="built_in">calc</span>(100% - 25rem);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://output.jsbin.com/rajazobeka/3" target="_blank" rel="noopener">demo</a><br>左中右的流式布局：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">nav</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">left</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">5rem</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">aside</span> &#123;</span><br><span class="line">  <span class="attribute">position</span>: fixed;</span><br><span class="line">  <span class="attribute">right</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">top</span>: <span class="number">0</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">20rem</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">main</span> &#123;</span><br><span class="line">  <span class="attribute">margin-left</span>: <span class="number">5rem</span>;</span><br><span class="line">  <span class="attribute">width</span>: <span class="built_in">calc</span>(<span class="number">100%</span> - <span class="number">25rem</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="用-vw-和-vh-做全屏滚动效果"><a href="#用-vw-和-vh-做全屏滚动效果" class="headerlink" title="用 vw 和 vh 做全屏滚动效果"></a>用 vw 和 vh 做全屏滚动效果</h3><blockquote>
 <p>兼容性：不支持 IE8</p>
 </blockquote>
-<p><a href="https://output.jsbin.com/doridehewe/1" target="_blank" rel="noopener">demo</a><br>vw 和 vh 是相对于 viewport 而言的，所以不会随内容和布局的变化而变。<br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">section</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100vw</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">background-size</span>: cover;</span><br><span class="line">  <span class="attribute">background-repeat</span>: no-repeat;</span><br><span class="line">  <span class="attribute">background-attachment</span>: fixed;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span><span class="selector-pseudo">:nth-of-type(1)</span> &#123;</span><br><span class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">'https://unsplash.it/1024/683?image=1068'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span><span class="selector-pseudo">:nth-of-type(2)</span> &#123;</span><br><span class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">'https://unsplash.it/1024/683?image=1073'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span><span class="selector-pseudo">:nth-of-type(3)</span> &#123;</span><br><span class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">'https://unsplash.it/1024/683?image=1047'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span><span class="selector-pseudo">:nth-of-type(4)</span> &#123;</span><br><span class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">'https://unsplash.it/1024/683?image=1032'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">font-family</span>: monospace;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://output.jsbin.com/doridehewe/1" target="_blank" rel="noopener">demo</a><br>vw 和 vh 是相对于 viewport 而言的，所以不会随内容和布局的变化而变。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">section</span> &#123;</span><br><span class="line">  <span class="attribute">width</span>: <span class="number">100vw</span>;</span><br><span class="line">  <span class="attribute">height</span>: <span class="number">100vh</span>;</span><br><span class="line">  <span class="attribute">display</span>: flex;</span><br><span class="line">  <span class="attribute">align-items</span>: center;</span><br><span class="line">  <span class="attribute">justify-content</span>: center;</span><br><span class="line">  <span class="attribute">text-align</span>: center;</span><br><span class="line">  <span class="attribute">background-size</span>: cover;</span><br><span class="line">  <span class="attribute">background-repeat</span>: no-repeat;</span><br><span class="line">  <span class="attribute">background-attachment</span>: fixed;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span><span class="selector-pseudo">:nth-of-type(1)</span> &#123;</span><br><span class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">'https://unsplash.it/1024/683?image=1068'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span><span class="selector-pseudo">:nth-of-type(2)</span> &#123;</span><br><span class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">'https://unsplash.it/1024/683?image=1073'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span><span class="selector-pseudo">:nth-of-type(3)</span> &#123;</span><br><span class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">'https://unsplash.it/1024/683?image=1047'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">section</span><span class="selector-pseudo">:nth-of-type(4)</span> &#123;</span><br><span class="line">  <span class="attribute">background-image</span>: <span class="built_in">url</span>(<span class="string">'https://unsplash.it/1024/683?image=1032'</span>);</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">  <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">p</span> &#123;</span><br><span class="line">  <span class="attribute">color</span>: <span class="number">#fff</span>;</span><br><span class="line">  <span class="attribute">font-size</span>: <span class="number">100px</span>;</span><br><span class="line">  <span class="attribute">font-family</span>: monospace;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <h3 id="用-unset-做-CSS-Reset"><a href="#用-unset-做-CSS-Reset" class="headerlink" title="用 unset 做 CSS Reset"></a>用 unset 做 CSS Reset</h3><blockquote>
 <p>兼容性：不支持 IE</p>
 </blockquote>
@@ -374,7 +388,8 @@
 <h3 id="用-column-做响应式的列布局"><a href="#用-column-做响应式的列布局" class="headerlink" title="用 column 做响应式的列布局"></a>用 column 做响应式的列布局</h3><blockquote>
 <p>兼容性：不支持 IE9</p>
 </blockquote>
-<p><a href="https://jsbin.com/xaruzuratu/2" target="_blank" rel="noopener">Demo</a><br><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">nav</span> &#123;</span><br><span class="line">  <span class="attribute">column-count</span>: <span class="number">4</span>;</span><br><span class="line">  <span class="attribute">column-width</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">column-gap</span>: <span class="number">3rem</span>;</span><br><span class="line">  <span class="attribute">column-rule</span>: <span class="number">1px</span> dashed <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">column-fill</span>: auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h2</span> &#123;</span><br><span class="line">  <span class="attribute">column-span</span>: all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><a href="https://jsbin.com/xaruzuratu/2" target="_blank" rel="noopener">Demo</a></p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="selector-tag">nav</span> &#123;</span><br><span class="line">  <span class="attribute">column-count</span>: <span class="number">4</span>;</span><br><span class="line">  <span class="attribute">column-width</span>: <span class="number">150px</span>;</span><br><span class="line">  <span class="attribute">column-gap</span>: <span class="number">3rem</span>;</span><br><span class="line">  <span class="attribute">column-rule</span>: <span class="number">1px</span> dashed <span class="number">#ccc</span>;</span><br><span class="line">  <span class="attribute">column-fill</span>: auto;</span><br><span class="line">&#125;</span><br><span class="line"><span class="selector-tag">h2</span> &#123;</span><br><span class="line">  <span class="attribute">column-span</span>: all;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>文章来源：<a href="https://github.com/sorrycc/blog/issues/14" target="_blank" rel="noopener">https://github.com/sorrycc/blog/issues/14</a></p>
 
       
@@ -393,9 +408,9 @@
       
         <div class="post-tags">
           
-            <a href="/tags/CSS/" rel="tag"># CSS</a>
+            <a href="/tags/%E5%89%8D%E7%AB%AF%E5%BC%80%E5%8F%91/" rel="tag"># 前端开发</a>
           
-            <a href="/tags/前端开发/" rel="tag"># 前端开发</a>
+            <a href="/tags/CSS/" rel="tag"># CSS</a>
           
         </div>
       
@@ -408,7 +423,7 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/12/22/JS对象/" rel="next" title="JS对象">
+              <a href="/2016/12/22/JS%E5%AF%B9%E8%B1%A1/" rel="next" title="JS对象">
                 <i class="fa fa-chevron-left"></i> JS对象
               </a>
             
@@ -418,7 +433,7 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/12/22/JavaScript作用域和闭包/" rel="prev" title="JavaScript作用域和闭包">
+              <a href="/2016/12/22/JavaScript%E4%BD%9C%E7%94%A8%E5%9F%9F%E5%92%8C%E9%97%AD%E5%8C%85/" rel="prev" title="JavaScript作用域和闭包">
                 JavaScript作用域和闭包 <i class="fa fa-chevron-right"></i>
               </a>
             
@@ -498,7 +513,7 @@
             
               <div class="site-state-item site-state-posts">
               
-                <a href="/archives/">
+                <a href="/archives/%7C%7C%20archive">
               
                   <span class="site-state-item-count">12</span>
                   <span class="site-state-item-name">日志</span>
@@ -591,7 +606,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; 2016 &mdash; <span itemprop="copyrightYear">2020</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -615,6 +630,26 @@
 
 
         
+<div class="busuanzi-count">
+  <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+  
+    <span class="site-uv">
+      <i class="fa fa-user"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_uv"></span>
+      
+    </span>
+  
+
+  
+    <span class="site-pv">
+      <i class="fa fa-eye"></i>
+      <span class="busuanzi-value" id="busuanzi_value_site_pv"></span>
+      
+    </span>
+  
+</div>
+
 
 
 
